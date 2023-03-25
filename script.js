@@ -11,10 +11,15 @@ console.log([video]);
 //Callback functions
 
 const updateVideoProgress = () => {};
-const playAndPause = () => {
-  video.paused ? video.play() : video.pause();
+
+function updatePlayIcon() {
   playButton.classList.toggle("fa-play");
   playButton.classList.toggle("fa-pause");
+}
+
+const playAndPause = () => {
+  video.paused ? video.play() : video.pause();
+  updatePlayIcon();
 };
 const stopPlayback = () => {};
 
