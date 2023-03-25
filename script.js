@@ -12,6 +12,15 @@ const updateVideoProgress = () => {
   progressBar.value = (video.currentTime / video.duration) * 100;
   video.ended ? updatePlayIcon() : null;
   console.log(progressBar.value);
+
+  let minutes = Math.floor(video.currentTime / 60);
+  let seconds = Math.floor(video.currentTime % 60);
+
+  if (seconds < 10) seconds = `0${seconds}`;
+
+  if (minutes < 60) minutes = `0${minutes}`;
+
+  timeStamp.innerHTML = `${minutes}:${seconds}`;
 };
 
 function updatePlayIcon() {
