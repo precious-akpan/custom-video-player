@@ -1,6 +1,4 @@
 const video = document.querySelector(".screen");
-const controls = document.querySelector(".controls");
-const buttons = document.querySelector(".btn");
 const playButton = document.querySelector(".fa-play");
 const stopButton = document.querySelector(".fa-stop");
 const progressBar = document.querySelector(".progress");
@@ -11,7 +9,6 @@ const timeStamp = document.querySelector(".timestamp");
 const updateVideoProgress = () => {
   progressBar.value = (video.currentTime / video.duration) * 100;
   video.ended ? updatePlayIcon() : null;
-  console.log(progressBar.value);
 
   let minutes = Math.floor(video.currentTime / 60);
   let seconds = Math.floor(video.currentTime % 60);
