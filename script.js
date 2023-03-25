@@ -6,22 +6,21 @@ const stopButton = document.querySelector(".fa-stop");
 const progressBar = document.querySelector(".progress");
 const timeStamp = document.querySelector(".timestamp");
 
-console.log([progressBar]);
-let isPlaying = false;
+console.log([video]);
 
+//Callback functions
+
+const updateVideoProgress = () => {};
 const playAndPause = () => {
-  isPlaying = !isPlaying;
-  isPlaying ? video.play() : video.pause();
+  video.paused ? video.play() : video.pause();
   playButton.classList.toggle("fa-play");
   playButton.classList.toggle("fa-pause");
 };
-
-playButton.addEventListener("click", playAndPause);
-const pause = () => {
-  video.pause();
-  playButton.classList.toggle("fa-play");
-  playButton.classList.toggle("fa-pause");
-};
+const stopPlayback = () => {};
 
 //Event Listeners
 video.addEventListener("click", playAndPause);
+playButton.addEventListener("click", playAndPause);
+stopButton.addEventListener("click", stopPlayback);
+
+video.addEventListener("timeupdate", updateVideoProgress);
